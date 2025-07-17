@@ -19,14 +19,11 @@ def generate_qr():
     qr.make(fit=True)
 
     image = qr.make_image(fill_color="yellow", back_color="blue")
-    
-    # Save image to memory (not disk)
     img_io = BytesIO()
     image.save(img_io, 'PNG')
     img_io.seek(0)
     
-    # Force download
     return send_file(img_io, mimetype='image/png', as_attachment=True, download_name='qrcode.png')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=3000)
