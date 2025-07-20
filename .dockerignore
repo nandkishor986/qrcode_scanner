@@ -1,0 +1,35 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+
+# macOS system files
+.DS_Store
+
+# VSCode settings
+.vscode/
+
+# Git
+.git/
+.gitignore
+
+# Python-related
+*.log
+*.egg-info/
+
+# Build artifacts
+build/
+dist/
+*.tar.gz
+
+# OS junk
+Thumbs.db
+
+# Cache
+*.cache
+*.tmp
+*.bak
