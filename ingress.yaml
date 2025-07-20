@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flask-qrcode-ingress
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    alb.ingress.kubernetes.io/group.name: flask-qrcode-group
+    alb.ingress.kubernetes.io/success-codes: "200"
+    kubernetes.io/ingress.class: alb
+spec:
+  rules:
+    - host: flaskqrcode.yourdomain.com  # Replace with your domain or ALB DNS
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: flask-qrcode-service
+              port:
+                number: 80

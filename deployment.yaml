@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-qrcode-deployment
+  labels:
+    app: flask-qrcode
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-qrcode
+  template:
+    metadata:
+      labels:
+        app: flask-qrcode
+    spec:
+      containers:
+      - name: flask-qrcode
+        image: nandkishor986/qrcode_generator:latest
+        ports:
+        - containerPort: 3000
